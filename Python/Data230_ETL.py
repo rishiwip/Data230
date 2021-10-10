@@ -1,8 +1,3 @@
-#   Property of SJSU Data230 Project Group
-#   Version    Date            Author              Desc
-#       1       04/27/2021      Rishi Srivastava    Initial Version
-#   Below Program does a full pull of Olympic Data and World GDP data
-
 import csv
 import cx_Oracle
 import io
@@ -16,7 +11,7 @@ def oracleConnection():
     import io
     import time
     try:
-        conn = cx_Oracle.connect('****/****')
+        conn = cx_Oracle.connect('SYSTEM/Welcome123')
         #cur = conn.cursor()
         print("Connection established")
         return conn
@@ -25,7 +20,7 @@ def oracleConnection():
 
 def processCSVData(fName):
     data = []
-    fileLoc = "C:/SJSU/230-Data_Visualization/230project_ETL/"
+    fileLoc = "C:/Users/rishi/OneDrive/Desktop/SJSU/230-Data_Visualization/230project_ETL/"
     try:
         fName   = fName
         csvfile = open(fileLoc+fName,"rt")
@@ -104,8 +99,9 @@ def main():
     global dataList
     try:
         loadData("Source1_athlete_events.csv",'HR.OLYMPIC_RAW_HISTORY')
-        loadData("Source2_API_GDP.csv",'HR.OLYMPIC_RAW_HISTORY')
+        loadData("Source2_API_GDP_PIVOT.csv",'HR.COUNTRIES_GDP')
         loadData("Source4_Country_API_NY.csv",'HR.GDP_COUNTRY_REGION_LKP')
+        loadData("Source5_API_GDP_PER_CAPITA_PIVOT.csv",'HR.COUNTRIES_GDP')
     except Exception as e:
         print("Exception occurred",str(e))
     
@@ -114,3 +110,4 @@ if __name__ == '__main__':
         True
     else:
         False
+    

@@ -20,7 +20,7 @@ def oracleConnection():
 
 def processCSVData(fName):
     data = []
-    fileLoc = "C:/Users/rishi/OneDrive/Desktop/SJSU/230-Data_Visualization/230project_ETL/"
+    fileLoc = "C:/SJSU/230-Data_Visualization/230project_ETL/"
     try:
         fName   = fName
         csvfile = open(fileLoc+fName,"rt")

@@ -11,7 +11,7 @@ def oracleConnection():
     import io
     import time
     try:
-        conn = cx_Oracle.connect('SYSTEM/Welcome123')
+        conn = cx_Oracle.connect('*****/*****')
         #cur = conn.cursor()
         print("Connection established")
         return conn
